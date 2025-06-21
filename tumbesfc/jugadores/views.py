@@ -5,6 +5,7 @@ from partidos.models import Partido
 from .serializers import JugadorSerializer
 from datetime import date
 from noticias.models import Noticia
+from sponsors.models import Sponsor
 
 
 class JugadorViewSet(viewsets.ModelViewSet):
@@ -17,8 +18,12 @@ def equipo(request):
     jugadores = Jugador.objects.all()
     proximos_partidos = Partido.objects.filter(fecha__gte=date.today()).order_by('fecha', 'hora')[:5]
     noticias = Noticia.objects.order_by('-fecha')[:4]  # Muestra las 4 más recientes
+    sponsors_destacados = Sponsor.objects.filter(destacado=True)
+    sponsors_normales = Sponsor.objects.filter(destacado=False)
     return render(request, 'jugadores/equipo.html', {
         'jugadores': jugadores,
         'proximos_partidos': proximos_partidos,
         'noticias': noticias,
+        'sponsors_destacados': sponsors_destacados,
+        'sponsors_normales': sponsors_normales,
     })

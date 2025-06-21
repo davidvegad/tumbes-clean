@@ -134,17 +134,26 @@
 			</div>
 		</section>
 	
-		<section id="sponsors" class="content-section">
-			<div class="container">
-				<h2>Patrocinadores</h2>
-				<div class="sponsors-row">
-				<img src="{% static 'sponsors/logo1.png' %}" alt="Sponsor 1" />
-				<img src="{% static 'sponsors/logo2.png' %}" alt="Sponsor 2" />
-				<img src="{% static 'sponsors/logo3.png' %}" alt="Sponsor 3" />
-				<!-- ... -->
-				</div>
-			</div>
-		</section>
+
+<section id="sponsors" class="content-section">
+  <div class="container">
+    <h2>Patrocinadores</h2>
+    <div class="sponsors-row sponsors-destacados">
+      {% for sponsor in sponsors_destacados %}
+        <a href="{{ sponsor.url }}" target="_blank" class="sponsor-link sponsor-big">
+          <img src="{{ sponsor.imagen.url }}" alt="{{ sponsor.nombre }}">
+        </a>
+      {% endfor %}
+    </div>
+    <div class="sponsors-row sponsors-normales">
+      {% for sponsor in sponsors_normales %}
+        <a href="{{ sponsor.url }}" target="_blank" class="sponsor-link">
+          <img src="{{ sponsor.imagen.url }}" alt="{{ sponsor.nombre }}">
+        </a>
+      {% endfor %}
+    </div>
+  </div>
+</section>
 
         <section id="contact" class="content-section">
              <div class="container">
