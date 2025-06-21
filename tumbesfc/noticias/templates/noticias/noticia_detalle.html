@@ -1,0 +1,17 @@
+{% extends 'base.html' %}  {# O la plantilla base de tu web #}
+
+{% block content %}
+<section id="noticia-detalle" class="content-section">
+  <div class="container" style="max-width:700px;">
+    <h1>{{ noticia.titulo }}</h1>
+    <p class="news-date">{{ noticia.fecha|date:"d M Y" }}</p>
+    {% if noticia.imagen %}
+      <img src="{{ noticia.imagen.url }}" alt="Imagen noticia" class="noticia-img-detalle">
+    {% endif %}
+    <div class="noticia-cuerpo" style="font-size:1.18rem; margin-bottom:16px;">
+      {{ noticia.cuerpo|linebreaks }}
+    </div>
+	<a href="/jugadores/equipo/#noticias" class="cta-button" style="margin-top:18px;">Volver a noticias</a>
+  </div>
+</section>
+{% endblock %}

@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <title>{% block title %}Tumbes FC{% endblock %}</title>
+    {% load static %}
+    <link rel="stylesheet" href="{% static 'style.css' %}">
+</head>
+<body>
+    <header>
+        <div class="container">
+            <a href="/jugadores/equipo/" class="logo-link">
+                <img src="{% static 'identity/logo.png' %}" alt="Logo Tumbes FC" class="logo">
+                <span>Tumbes FC</span>
+            </a>
+            <nav>
+                <ul>
+                    <li><a href="/jugadores/equipo/#about">Nosotros</a></li>
+                    <li><a href="/jugadores/equipo/#team">Equipo</a></li>
+                    <li><a href="/jugadores/equipo/#matches">Partidos</a></li>
+                    <li><a href="/jugadores/equipo/#noticias">Noticias</a></li>
+					<li><a href="/jugadores/equipo/#sponsors">Patrocinadores</a></li>
+                    <li><a href="/jugadores/equipo/#contact">Contacto</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+
+    {% block content %}
+    {% endblock %}
+
+    <footer>
+        <div class="container">
+            <p>&copy; 2025 Tumbes FC. Todos los derechos reservados.</p>
+        </div>
+    </footer>
+</body>
+</html>
