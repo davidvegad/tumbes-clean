@@ -1,0 +1,18 @@
+<section id="noticias" class="content-section">
+    <div class="container">
+        <h2>Noticias</h2>
+        <div class="news-grid">
+            {% for noticia in noticias %}
+            <div class="news-card">
+                <img src="{{ noticia.imagen.url }}" alt="Imagen noticia">
+                <div class="news-content">
+                    <h3>{{ noticia.titulo }}</h3>
+                    <p class="news-date">{{ noticia.fecha|date:"d M Y" }}</p>
+                    <p class="news-resumen">{{ noticia.resumen|truncatechars:90 }}</p>
+                    <!-- Si quieres, pon un enlace a detalle -->
+                </div>
+            </div>
+            {% endfor %}
+        </div>
+    </div>
+</section>

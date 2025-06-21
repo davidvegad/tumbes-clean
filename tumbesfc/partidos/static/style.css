@@ -716,3 +716,138 @@ footer {
     min-width: unset;
   }
 }
+
+.news-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(270px, 1fr));
+  gap: 24px;
+  margin-top: 24px;
+}
+
+.news-card {
+  background: var(--white);
+  border-radius: 14px;
+  box-shadow: 0 2px 14px rgba(24,40,69,0.08);
+  overflow: hidden;
+  display: flex;
+  flex-direction: column;
+  transition: box-shadow 0.2s;
+}
+
+.news-card:hover {
+  box-shadow: 0 6px 24px rgba(24,40,69,0.14);
+  transform: translateY(-2px) scale(1.02);
+}
+
+.news-card img {
+  width: 100%;
+  height: 170px;
+  object-fit: cover;
+}
+
+.news-content {
+  padding: 18px 14px 14px 14px;
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+}
+
+.news-content h3 {
+  font-size: 1.2rem;
+  margin: 0 0 10px 0;
+  font-family: 'Anton', Arial, sans-serif;
+}
+
+.news-date {
+  font-size: 0.97rem;
+  color: #888;
+  margin-bottom: 6px;
+}
+
+.news-resumen {
+  font-size: 1rem;
+  margin-bottom: 0;
+}
+
+.sponsors-row {
+  display: flex;
+  gap: 32px;
+  justify-content: center;
+  align-items: center;
+  flex-wrap: wrap;
+  margin-top: 18px;
+}
+.sponsors-row img {
+  height: 60px;
+  filter: grayscale(1);
+  opacity: 0.7;
+  transition: filter 0.18s, opacity 0.18s, transform 0.2s;
+}
+.sponsors-row img:hover {
+  filter: none;
+  opacity: 1;
+  transform: scale(1.06);
+}
+
+.noticiasSwiper {
+  height: 500px !important;
+  max-width: 1100px;
+  margin: 0 auto 30px auto;
+  position: relative;
+}
+.noticia-card {
+  width: 320px;
+  min-height: 320px;
+  background: var(--white);
+  border-radius: 16px;
+  box-shadow: 0 2px 14px rgba(24,40,69,0.08);
+  overflow: hidden;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  transition: box-shadow 0.2s, transform 0.2s;
+  text-align: center;
+  margin: 0 auto;
+}
+.noticia-card:hover {
+  box-shadow: 0 6px 22px rgba(24,40,69,0.13);
+  transform: scale(1.025);
+}
+.noticia-img {
+  width: 100%;
+  height: 300px;          /* Ajusta a tu gusto: 150px, 180px, etc. */
+  object-fit: cover;      /* Esto hace el recorte bonito */
+  object-position: center;
+  border-top-left-radius: 16px;
+  border-top-right-radius: 16px;
+  background: #eee;       /* Para fondos sin imagen */
+  display: block;
+}
+
+.noticia-content {
+  padding: 18px 14px 14px 14px;
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  align-items: center;
+}
+.noticia-content h3 {
+  font-size: 1.15rem;
+  margin: 0 0 10px 0;
+  font-family: 'Anton', Arial, sans-serif;
+  color: var(--dark-blue);
+}
+.news-date {
+  font-size: 0.97rem;
+  color: #888;
+  margin-bottom: 6px;
+}
+.news-resumen {
+  font-size: 1rem;
+  margin-bottom: 0;
+  color: var(--dark-blue);
+}
+
+
