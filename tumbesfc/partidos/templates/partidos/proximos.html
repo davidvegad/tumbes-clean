@@ -1,0 +1,32 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <title>Próximos Partidos - Tumbes FC</title>
+    <link rel="stylesheet" href="{% static 'style.css' %}">
+</head>
+<body>
+    <section id="matches" class="content-section">
+        <div class="container">
+            <h2>Próximos Partidos</h2>
+            {% for partido in partidos %}
+            <div class="match-card">
+                <div class="match-teams">
+                    <span class="team-name">Tumbes FC</span>
+                    <span class="vs">VS</span>
+                    <span class="team-name">{{ partido.equipo_rival }}</span>
+                </div>
+                <div class="match-info">
+                    <p><strong>Fecha:</strong> {{ partido.fecha|date:"l, d \\d\\e F, Y" }}</p>
+                    <p><strong>Hora:</strong> {{ partido.hora|time:"H:i" }}</p>
+                    <p><strong>Lugar:</strong> {{ partido.lugar }}</p>
+                </div>
+            </div>
+            {% empty %}
+                <p>No hay partidos próximos registrados.</p>
+            {% endfor %}
+        </div>
+    </section>
+</body>
+</html>

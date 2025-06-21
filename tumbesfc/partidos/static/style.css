@@ -1,0 +1,718 @@
+/*
+:root {
+    --dark-blue: #0A2140;
+    --green: #00A859;
+    --yellow: #FFD700;
+    --light-blue: #00BFFF; 
+    --white: #FFFFFF;
+    --off-white: #f4f4f4;
+    --text-dark: #333333;
+    --font-heading: 'Anton', sans-serif; 
+    --font-body: 'Roboto', sans-serif;
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+html {
+    scroll-behavior: smooth;
+}
+
+body {
+  font-family: 'Roboto', Arial, sans-serif;
+  background: var(--light-grey);
+  color: var(--dark-blue);
+  margin: 0;
+  padding: 0;
+}
+
+
+.container {
+    max-width: 1100px;
+    margin: 0 auto;
+    padding: 0 20px;
+}
+
+h1, h2, h3 {
+  font-family: 'Anton', Arial, sans-serif;
+  color: var(--dark-blue);
+  margin-top: 0;
+  letter-spacing: 2px;
+}
+
+h2 {
+  font-size: 2.2rem;
+  margin-bottom: 20px;
+  text-align: center;
+}
+
+header {
+    background-color: var(--white);
+    padding: 1rem 0;
+    border-bottom: 1px solid #eee;
+    position: sticky;
+    top: 0;
+    z-index: 1000;
+    width: 100%;
+}
+
+header .container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.logo-link {
+    display: flex;
+    align-items: center;
+    text-decoration: none;
+    font-family: var(--font-heading);
+    font-size: 1.5rem;
+    color: var(--dark-blue);
+}
+
+.logo {
+    height: 50px;
+    margin-right: 10px;
+}
+
+nav ul {
+    list-style: none;
+    display: flex;
+}
+
+nav ul li {
+    margin-left: 25px;
+}
+
+nav ul li a {
+    text-decoration: none;
+    color: var(--dark-blue);
+    font-weight: bold;
+    transition: color 0.3s ease;
+}
+
+nav ul li a:hover {
+    color: var(--yellow);
+}
+
+#hero {
+    background: linear-gradient(rgba(10, 33, 64, 0.8), rgba(10, 33, 64, 0.9)), url('https://images.unsplash.com/photo-1551958214-2d59cc7a3d46?q=80&w=2070&auto=format&fit=crop') no-repeat center center/cover;
+    height: 90vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    color: var(--white);
+}
+
+.hero-content .hero-logo {
+    max-width: 150px;
+    margin-bottom: 1rem;
+}
+
+#hero h1 {
+    font-size: 5rem;
+    color: var(--white);
+    letter-spacing: 2px;
+}
+
+#hero p {
+    font-size: 1.5rem;
+    margin-bottom: 2rem;
+    font-weight: bold;
+    color: var(--yellow);
+}
+
+.cta-button {
+    background-color: var(--yellow);
+    color: var(--dark-blue);
+    padding: 15px 30px;
+    text-decoration: none;
+    font-weight: bold;
+    border-radius: 5px;
+    transition: background-color 0.3s ease, transform 0.2s ease;
+    display: inline-block;
+    font-family: var(--font-heading);
+    font-size: 1.2rem;
+    letter-spacing: 1px;
+}
+
+.cta-button:hover {
+    background-color: #ffd000;
+    transform: translateY(-3px);
+}
+
+.content-section {
+    padding: 80px 0;
+}
+
+#about, #team {
+    background-color: var(--white);
+}
+
+#about p {
+    max-width: 800px;
+    margin: 0 auto;
+    text-align: center;
+    font-size: 1.1rem;
+}
+
+#matches, #contact {
+    background-color: var(--off-white);
+}
+
+.team-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 30px;
+    margin-top: 40px;
+}
+.mySwiper {
+  height: 370px !important;   
+  max-width: 100%;
+  margin: 0 auto;
+  position: relative;
+}
+
+
+.swiper-slide {
+  height: 340px !important; 
+  display: flex !important;
+  justify-content: center;
+  align-items: flex-start;
+}
+
+.player-card {
+  width: 200px;
+  height: 320px;  
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: flex-start;
+  background: #fff;
+  border-radius: 16px;
+  box-shadow: 0 4px 16px rgba(0,0,0,0.08);
+  margin: 0 auto;
+  padding: 20px 10px;
+  transition: transform 0.2s;
+  overflow: hidden;
+}
+
+.player-card img {
+  width: 210px;
+  height: 210px;
+  border-radius: 50%;
+  object-fit: cover;
+  margin-bottom: 8px;
+}
+
+
+.player-card:hover {
+    transform: translateY(-10px);
+    box-shadow: 0 8px 25px rgba(0, 168, 89, 0.2);
+}
+.player-card h3 {
+    font-family: var(--font-heading);
+    color: var(--dark-blue);
+    font-size: 1.5rem;
+}
+
+.player-card p {
+    color: var(--green);
+    font-weight: bold;
+}
+
+
+
+.partidosSwiper {
+  height: 350px !important;
+  width: 1100px;
+  margin-bottom: 20px;
+}
+
+:root {
+  --dark-blue: #182845; 
+  --yellow: #FFD600;    
+  --white: #fff;
+  --light-grey: #F6F6F6;
+}
+
+.partido-card {
+  width: 340px;
+  min-height: 260px;
+  background: var(--dark-blue);
+  border-radius: 20px;
+  box-shadow: 0 4px 24px rgba(0,0,0,0.08);
+  margin: 0 auto;
+  padding: 28px 18px 18px 18px;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  align-items: center;
+  text-align: center;
+}
+
+.match-teams {
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-end;
+  font-family: 'Anton', Arial, sans-serif;
+  font-size: 2.2rem;
+  margin-bottom: 16px;
+  text-align: center;
+}
+
+.team-name {
+  color: var(--white);
+  font-weight: bold;
+  line-height: 1;
+}
+
+.vs {
+  color: var(--yellow);
+  font-family: 'Anton', Arial, sans-serif;
+  font-size: 2rem;
+  font-weight: bold;
+  padding: 0 10px;
+  align-self: center;
+}
+
+.match-info {
+  width: 100%;
+  font-family: 'Roboto', Arial, sans-serif;
+  font-size: 1.08rem;
+  text-align: left;
+  color: var(--white);
+    text-align: center; 
+
+}
+
+.match-info p {
+  margin: 4px 0;
+  color: var(--white);
+    text-align: center;   
+
+}
+
+@media (max-width: 900px) {
+  .partido-card {
+    width: 95vw;
+    min-width: 200px;
+    font-size: 0.95rem;
+  }
+  .match-teams {
+    font-size: 1.2rem;
+  }
+}
+
+
+.social-links {
+    margin-top: 20px;
+}
+
+.social-links a {
+    display: inline-block;
+    margin: 0 15px;
+    padding: 10px 20px;
+    background: var(--green);
+    color: var(--white);
+    text-decoration: none;
+    border-radius: 5px;
+    font-weight: bold;
+    transition: background-color 0.3s ease;
+}
+
+.social-links a:hover {
+    background-color: #008a4a;
+}
+
+footer {
+    background-color: var(--dark-blue);
+    color: var(--white);
+    text-align: center;
+    padding: 20px 0;
+}
+
+@media (max-width: 768px) {
+    header .container {
+        flex-direction: column;
+    }
+
+    nav ul {
+        padding: 10px 0;
+        flex-wrap: wrap;
+        justify-content: center;
+    }
+    
+    nav ul li {
+        margin: 5px 10px;
+    }
+
+    #hero h1 {
+        font-size: 3rem;
+    }
+
+    #hero p {
+        font-size: 1.2rem;
+    }
+    
+    h2 {
+        font-size: 2rem;
+    }
+    
+    .match-teams {
+        flex-direction: column;
+        font-size: 2rem;
+    }
+
+    .vs {
+        margin: 10px 0;
+    }
+}
+*/
+:root {
+  --dark-blue: #182845;
+  --yellow: #FFD600;
+  --white: #fff;
+  --light-grey: #F6F6F6;
+}
+
+/* --------- RESETEO Y BASE --------- */
+* { box-sizing: border-box; }
+
+body {
+  font-family: 'Roboto', Arial, sans-serif;
+  background: var(--light-grey);
+  color: var(--dark-blue);
+  margin: 0;
+  padding: 0;
+}
+
+h1, h2, h3 {
+  font-family: 'Anton', Arial, sans-serif;
+  color: var(--dark-blue);
+  margin-top: 0;
+  letter-spacing: 2px;
+}
+
+h2 {
+  font-size: 2.2rem;
+  margin-bottom: 20px;
+  text-align: center;
+}
+
+/* --------- HEADER Y NAVEGACIÓN --------- */
+header {
+  background: var(--white);
+  box-shadow: 0 2px 8px rgba(24, 40, 69, 0.04);
+  position: sticky;
+  top: 0;
+  z-index: 100;
+}
+
+header .container {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  max-width: 1250px;
+  margin: 0 auto;
+  padding: 12px 32px;
+}
+
+.logo-link {
+  display: flex;
+  align-items: center;
+  font-family: 'Anton', Arial, sans-serif;
+  color: var(--dark-blue);
+  font-size: 1.7rem;
+  gap: 10px;
+  text-decoration: none;
+}
+
+.logo-link img {
+  width: 54px;
+  height: 54px;
+}
+
+nav ul {
+  display: flex;
+  gap: 32px;
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+nav ul li a {
+  color: var(--dark-blue);
+  font-weight: 700;
+  font-size: 1.1rem;
+  transition: color 0.2s;
+  text-decoration: none;
+}
+nav ul li a:hover {
+  color: var(--yellow);
+}
+
+/* --------- SECCIONES --------- */
+.content-section {
+  background: var(--light-grey);
+  padding: 40px 0 32px 0;
+}
+
+.container {
+  max-width: 1250px;
+  margin: 0 auto;
+  padding: 0 16px;
+}
+
+/* --------- HERO --------- */
+#hero {
+  background: linear-gradient(135deg, var(--dark-blue) 70%, var(--yellow) 100%);
+  color: var(--white);
+  text-align: center;
+  padding: 54px 0 36px 0;
+}
+#hero h1 {
+  font-size: 4rem;
+  margin: 0;
+}
+#hero .hero-logo {
+  width: 120px;
+  margin-bottom: 12px;
+}
+
+/* --------- BOTONES --------- */
+.cta-button {
+  display: inline-block;
+  padding: 12px 36px;
+  border-radius: 25px;
+  background: var(--yellow);
+  color: var(--dark-blue);
+  font-weight: bold;
+  font-size: 1.15rem;
+  border: none;
+  box-shadow: 0 2px 12px rgba(24,40,69,0.10);
+  transition: background 0.2s, color 0.2s, box-shadow 0.2s;
+  margin-top: 18px;
+  text-decoration: none;
+}
+.cta-button:hover {
+  background: var(--dark-blue);
+  color: var(--yellow);
+  box-shadow: 0 2px 18px rgba(24,40,69,0.17);
+}
+
+/* --------- CARDS GENERALES --------- */
+.card, .partido-card, .player-card {
+  background: var(--white);
+  border-radius: 18px;
+  box-shadow: 0 4px 20px rgba(24,40,69,0.08);
+  padding: 30px 24px;
+  margin: 12px auto;
+  transition: transform 0.2s, box-shadow 0.2s;
+}
+.card:hover, .partido-card:hover, .player-card:hover {
+  transform: translateY(-4px) scale(1.03);
+  box-shadow: 0 8px 24px rgba(24,40,69,0.13);
+}
+
+/* --------- PLAYER CARD SWIPER --------- */
+.mySwiper {
+  height: 370px !important;
+  max-width: 1200px;
+  margin: 0 auto 20px auto;
+  position: relative;
+}
+
+.swiper-slide {
+  display: flex !important;
+  justify-content: center;
+  align-items: flex-start;
+  background: none;
+}
+
+.player-card {
+  width: 200px;
+  height: 320px;
+  background: var(--white);
+  border-radius: 16px;
+  box-shadow: 0 4px 16px rgba(0,0,0,0.08);
+  padding: 20px 10px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin: 0 auto;
+  text-align: center;
+}
+
+.player-card img {
+  width: 250px;
+  height: 250px;
+  border-radius: 50%;
+  object-fit: cover;
+  margin-bottom: 10px;
+}
+
+.player-card h3 {
+  font-family: 'Anton', Arial, sans-serif;
+  font-size: 1.3rem;
+  margin-bottom: 5px;
+  color: var(--dark-blue);
+  margin-top: 0;
+  text-transform: uppercase;
+}
+
+.player-card p {
+  color: #13B655;
+  font-weight: 700;
+  font-size: 1.1rem;
+  margin: 0;
+}
+
+/* --------- PARTIDOS CARD SWIPER --------- */
+.partidosSwiper {
+  height: 290px !important;
+  max-width: 1250px;
+  margin: 0 auto 20px auto;
+  position: relative;
+}
+
+.partido-card {
+  width: 340px;
+  min-height: 260px;
+  background: var(--dark-blue);
+  border-radius: 20px;
+  box-shadow: 0 4px 24px rgba(0,0,0,0.08);
+  margin: 0 auto;
+  padding: 28px 18px 18px 18px;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  align-items: center;
+  text-align: center;
+}
+
+.match-teams {
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-end;
+  font-family: 'Anton', Arial, sans-serif;
+  font-size: 2.2rem;
+  margin-bottom: 16px;
+  text-align: center;
+}
+
+.team-name {
+  color: var(--white);
+  font-weight: bold;
+  line-height: 1;
+}
+
+.vs {
+  color: var(--yellow);
+  font-family: 'Anton', Arial, sans-serif;
+  font-size: 2rem;
+  font-weight: bold;
+  padding: 0 10px;
+  align-self: center;
+}
+
+.match-info {
+  width: 100%;
+  font-family: 'Roboto', Arial, sans-serif;
+  font-size: 1.08rem;
+  color: var(--white);
+  text-align: center;
+}
+.match-info p {
+  margin: 4px 0;
+  color: var(--white);
+  text-align: center;
+}
+
+/* --------- PAGINACIÓN Y FLECHAS SWIPER --------- */
+.swiper-pagination {
+  bottom: 8px !important;
+}
+.swiper-button-next,
+.swiper-button-prev {
+  top: 45% !important;
+}
+
+/* --------- SOCIAL LINKS --------- */
+.social-links {
+  display: flex;
+  gap: 18px;
+  justify-content: center;
+  margin-top: 18px;
+}
+.social-links a {
+  color: var(--dark-blue);
+  background: var(--yellow);
+  padding: 8px 18px;
+  border-radius: 20px;
+  font-weight: bold;
+  text-decoration: none;
+  font-size: 1rem;
+  transition: background 0.18s, color 0.18s;
+}
+.social-links a:hover {
+  background: var(--dark-blue);
+  color: var(--yellow);
+}
+
+/* --------- FOOTER --------- */
+footer {
+  background: var(--dark-blue);
+  color: var(--white);
+  padding: 24px 0;
+  text-align: center;
+  font-size: 1rem;
+  letter-spacing: 1px;
+  margin-top: 40px;
+}
+
+/* --------- RESPONSIVE --------- */
+@media (max-width: 900px) {
+  .container, header .container {
+    padding: 0 10px;
+  }
+  nav ul {
+    gap: 16px;
+  }
+  .logo-link span {
+    font-size: 1.1rem;
+  }
+  .partido-card, .player-card {
+    width: 95vw;
+    min-width: unset;
+    font-size: 0.95rem;
+  }
+  .match-teams {
+    font-size: 1.2rem;
+  }
+  .mySwiper, .partidosSwiper {
+    max-width: 99vw;
+  }
+}
+
+@media (max-width: 600px) {
+  .container, header .container {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+  nav ul {
+    flex-direction: column;
+    gap: 12px;
+    width: 100%;
+  }
+  .partido-card, .player-card {
+    width: 98vw;
+    min-width: unset;
+  }
+}
