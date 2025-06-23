@@ -46,6 +46,7 @@ INSTALLED_APPS = [
     'partidos',
     'noticias',
     'sponsors',
+    'home',
     'rest_framework',
 ]
 

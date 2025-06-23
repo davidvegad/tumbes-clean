@@ -40,6 +40,7 @@
     </header>
 
     <main>
+	<!--
         <section id="hero">
             <div class="hero-content">
 				<img src="{% static 'identity/logo.png' %}" alt="Escudo Grande Tumbes FC" width="460">
@@ -48,6 +49,30 @@
                 <a href="#team" class="cta-button">Conoce al Equipo</a>
             </div>
         </section>
+	-->
+		<section id="hero" class="hero-swiper">
+			<div class="swiper heroSwiper">
+				<div class="swiper-wrapper">
+				{% for slide in slides %}
+				<div class="swiper-slide">
+					<a href="{{ slide.link }}" target="_blank" style="text-decoration:none; color:inherit;">
+					<img src="{{ slide.imagen.url }}" alt="{{ slide.titulo }}" class="hero-img">
+					<div class="hero-text-overlay">
+						{% if slide.titulo %}<h1>{{ slide.titulo }}</h1>{% endif %}
+						{% if slide.subtitulo %}<p>{{ slide.subtitulo }}</p>{% endif %}
+						{% if slide.boton_texto and slide.link %}
+						<span class="hero-cta">{{ slide.boton_texto }}</span>
+						{% endif %}
+					</div>
+					</a>
+				</div>
+				{% endfor %}
+				</div>
+				<div class="swiper-button-next hero-next"></div>
+				<div class="swiper-button-prev hero-prev"></div>
+				<div class="swiper-pagination hero-pagination"></div>
+			</div>
+		</section>
 
         <section id="about" class="content-section">
             <div class="container">
@@ -55,6 +80,9 @@
                 <p>Somos Tumbes FC, un equipo de fútbol amateur nacido de la pasión y la amistad. Fundado en 2024, nuestro objetivo es representar con orgullo a nuestra ciudad en cada cancha que pisamos. Creemos en el juego limpio, el esfuerzo y el trabajo en equipo para alcanzar la victoria.</p>
             </div>
         </section>
+		
+
+
 
 		<section id="team" class="content-section">
 			<div class="container">
@@ -81,24 +109,36 @@
 			</div>
 		</section>
 
-
-
-		<section id="matches" class="content-section">
+		
+      	<section id="matches" class="content-section">
 			<div class="container">
 				<h2>Próximos Partidos</h2>
 				<div class="swiper partidosSwiper">
 				<div class="swiper-wrapper">
 					{% for partido in proximos_partidos %}
 					<div class="swiper-slide partido-card">
+						{% if partido.liga %}
+						<div class="liga-nombre">{{ partido.liga }}</div>
+						{% endif %}
 						<div class="match-teams">
-							<span class="team-name team-home">Tumbes <br>FC</span>
-							<span class="vs">VS</span>
-							<span class="team-name team-away">{{ partido.equipo_rival|linebreaksbr }}</span>
+						<div class="team-info">
+							<img src="{% static 'identity/logo.png' %}" alt="Tumbes FC" class="team-logo">
+							<span class="team-name team-home">Tumbes FC</span>
+						</div>
+						<span class="vs">VS</span>
+						<div class="team-info">
+							{% if partido.logo_visitante %}
+							<img src="{{ partido.logo_visitante.url }}" alt="{{ partido.equipo_rival }}" class="team-logo">
+							{% else %}
+							<img src="{% static 'identity/silueta.png' %}" alt="{{ partido.equipo_rival }}" class="team-logo">
+							{% endif %}
+							<span class="team-name team-away">{{ partido.equipo_rival }}</span>
+						</div>
 						</div>
 						<div class="match-info">
-							<p><strong>Fecha:</strong> {{ partido.fecha|date:"l, d \\d\\e F, Y" }}</p>
-							<p><strong>Hora:</strong> {{ partido.hora|time:"H:i" }}</p>
-							<p><strong>Lugar:</strong> {{ partido.lugar }}</p>
+						<p><strong>Fecha:</strong> {{ partido.fecha|date:"l, d \\d\\e F, Y" }}</p>
+						<p><strong>Hora:</strong> {{ partido.hora|time:"H:i" }}</p>
+						<p><strong>Lugar:</strong> {{ partido.lugar }}</p>
 						</div>
 					</div>
 					{% endfor %}
@@ -107,27 +147,81 @@
 					<div class="swiper-button-prev partidos-prev"></div>
 					<div class="swiper-pagination partidos-pagination"></div>
 				</div>
-
 			</div>
 		</section>
-      	
+
+
+
+<section id="resultados" class="content-section">
+  <div class="container">
+    <h2>Últimos Resultados</h2>
+    <div class="swiper resultadosSwiper">
+      <div class="swiper-wrapper">
+        {% for partido in resultados %}
+        <div class="swiper-slide resultado-card">
+          <div class="liga-nombre">{{ partido.liga }}</div>
+          <div class="resultado-equipos">
+            <div class="team-info">
+              <img src="{% static 'identity/logo.png' %}" alt="Tumbes FC" class="team-logo">
+              <span class="team-name-ult">Tumbes FC</span>
+            </div>
+            <div class="resultado-marcador">
+              <span>{{ partido.goles_local|default:"0" }}</span>
+              <span class="guion">-</span>
+              <span>{{ partido.goles_visitante|default:"0" }}</span>
+            </div>
+            <div class="team-info">
+              {% if partido.logo_visitante %}
+                <img src="{{ partido.logo_visitante.url }}" alt="{{ partido.equipo_rival }}" class="team-logo">
+              {% else %}
+                <img src="{% static 'identity/silueta.png' %}" alt="{{ partido.equipo_rival }}" class="team-logo">
+              {% endif %}
+              <span class="team-name-ult">{{ partido.equipo_rival }}</span>
+            </div>
+          </div>
+          <div class="resultado-meta">
+            <span class="resultado-fecha">{{ partido.fecha|date:"d M Y" }}</span> |
+            <span class="resultado-lugar">{{ partido.lugar }}</span>
+          </div>
+          {% if partido.goleadores_local or partido.goleadores_visitante %}
+          <div class="resultado-goleadores">
+            {% if partido.goleadores_local %}
+              <span class="goleadores-local"><b>Tumbes FC:</b> {{ partido.goleadores_local }}</span>
+            {% endif %}
+            {% if partido.goleadores_visitante %}
+              <span class="goleadores-visitante"><b>{{ partido.equipo_rival }}:</b> {{ partido.goleadores_visitante }}</span>
+            {% endif %}
+          </div>
+          {% endif %}
+        </div>
+        {% endfor %}
+      </div>
+      <div class="swiper-button-next resultados-next"></div>
+      <div class="swiper-button-prev resultados-prev"></div>
+      <div class="swiper-pagination resultados-pagination"></div>
+    </div>
+  </div>
+</section>
+
+
+
 
 		<section id="noticias" class="content-section">
-			<div class="container">
-				<h2>Noticias</h2>
-				<div class="swiper noticiasSwiper">
-				<div class="swiper-wrapper">
-					{% for noticia in noticias %}
-					<div class="swiper-slide noticia-card">
-  <a href="{% url 'noticia_detalle' noticia.pk %}" style="text-decoration:none;color:inherit;">
-    <img src="{{ noticia.imagen.url }}" alt="Imagen noticia" class="noticia-img">
-    <div class="noticia-content">
-      <h3>{{ noticia.titulo }}</h3>
-      <p class="news-date">{{ noticia.fecha|date:"d M Y" }}</p>
-      <p class="news-resumen">{{ noticia.resumen|truncatechars:90 }}</p>
-    </div>
-  </a>
-</div>
+							<div class="container">
+								<h2>Noticias</h2>
+								<div class="swiper noticiasSwiper">
+								<div class="swiper-wrapper">
+									{% for noticia in noticias %}
+									<div class="swiper-slide noticia-card">
+				<a href="{% url 'noticia_detalle' noticia.pk %}" style="text-decoration:none;color:inherit;">
+					<img src="{{ noticia.imagen.url }}" alt="Imagen noticia" class="noticia-img">
+					<div class="noticia-content">
+					<h3>{{ noticia.titulo }}</h3>
+					<p class="news-date">{{ noticia.fecha|date:"d M Y" }}</p>
+					<p class="news-resumen">{{ noticia.resumen|truncatechars:90 }}</p>
+					</div>
+				</a>
+				</div>
 
 					{% endfor %}
 				</div>
@@ -252,8 +346,40 @@
     }
   });
 
+const heroSwiper = new Swiper('.heroSwiper', {
+  slidesPerView: 1,
+  loop: true,
+  autoplay: {
+    delay: 4000,
+    disableOnInteraction: false,
+  },
+  navigation: {
+    nextEl: '.hero-next',
+    prevEl: '.hero-prev',
+  },
+  pagination: {
+    el: '.hero-pagination',
+    clickable: true,
+  },
+  speed: 800
+  // NO pongas effect: "fade"
+});
 
+  const resultadosSwiper = new Swiper('.resultadosSwiper', {
+    slidesPerView: 2,
+    spaceBetween: 32,
+    navigation: {
+      nextEl: '.resultados-next',
+      prevEl: '.resultados-prev',
+    },
+    pagination: {
+      el: '.resultados-pagination',
+      clickable: true,
+    },
+    breakpoints: {
+      600: { slidesPerView: 1 },
+      900: { slidesPerView: 2 },
+      1200: { slidesPerView: 3 }
+    }
+  });
 </script>
-
-
-

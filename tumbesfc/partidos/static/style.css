@@ -100,6 +100,7 @@ nav ul li a:hover {
 }
 
 /* --------- HERO --------- */
+/*
 #hero {
   background: linear-gradient(135deg, var(--dark-blue) 70%, var(--yellow) 100%);
   color: var(--white);
@@ -114,6 +115,68 @@ nav ul li a:hover {
   width: 120px;
   margin-bottom: 12px;
 }
+*/
+.hero-swiper {
+  width: 100vw;
+  height: 920px;
+  position: relative;
+  overflow: hidden;
+}
+
+.hero-img {
+  width: 100vw;
+  max-height: 820px;
+  object-fit: cover;
+  display: block;
+  margin: 0 auto;
+  border-radius: 0;
+}
+
+.hero-text-overlay {
+  position: absolute;
+  left: 0;
+  right: 0;
+  bottom: 42px;
+  z-index: 2;
+  color: var(--white);
+  text-align: center;
+  width: 100%;
+  background: rgba(24,40,69,0.42); /* Oscurece para que el texto siempre sea legible */
+  padding: 26px 0 16px 0;
+  box-sizing: border-box;
+}
+
+.hero-text-overlay h1 {
+  margin: 0 0 6px 0;
+  font-size: 2.4rem;
+  color: var(--yellow);
+  letter-spacing: 1.5px;
+  font-family: 'Anton', Arial, sans-serif;
+}
+
+.hero-text-overlay p {
+  margin: 0 0 10px 0;
+  font-size: 1.25rem;
+}
+
+.hero-cta {
+  display: inline-block;
+  padding: 8px 28px;
+  background: var(--yellow);
+  color: var(--dark-blue);
+  border-radius: 24px;
+  font-weight: bold;
+  font-size: 1.1rem;
+  margin-top: 10px;
+  box-shadow: 0 2px 10px rgba(24,40,69,0.12);
+  text-transform: uppercase;
+  transition: background 0.18s, color 0.18s;
+}
+.hero-cta:hover {
+  background: var(--dark-blue);
+  color: var(--yellow);
+}
+
 
 /* --------- BOTONES --------- */
 .cta-button {
@@ -239,6 +302,7 @@ nav ul li a:hover {
 
 .team-name {
   color: var(--white);
+  font-size: 1.2rem;
   /*font-weight: bold;*/
   line-height: 1;
 }
@@ -521,4 +585,154 @@ footer {
   box-shadow: 0 6px 28px rgba(255,214,0,0.13);
 }
 
+.liga-nombre {
+  font-size: 1rem;
+  font-weight: bold;
+  color: var(--yellow);
+  text-align: center;
+  margin-bottom: 8px;
+  letter-spacing: 1px;
+  text-transform: uppercase;
+}
 
+.match-teams {
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  font-family: 'Anton', Arial, sans-serif;
+  font-size: 2.2rem;
+  margin-bottom: 12px;
+  text-align: center;
+}
+
+.team-info {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  min-width: 90px;
+}
+
+.team-logo {
+  width: 48px;
+  height: 48px;
+  object-fit: contain;
+  border-radius: 12px;
+  margin-bottom: 4px;
+  background: #fff;
+  box-shadow: 0 2px 8px rgba(24,40,69,0.08);
+}
+
+.resultados-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+  gap: 24px;
+  margin-top: 22px;
+}
+.resultado-card {
+  background: var(--white);
+  border-radius: 15px;
+  box-shadow: 0 2px 14px rgba(24,40,69,0.08);
+  padding: 22px 18px;
+  text-align: center;
+  transition: box-shadow 0.18s;
+}
+.resultado-card:hover {
+  box-shadow: 0 6px 20px rgba(24,40,69,0.14);
+}
+.liga-nombre {
+  font-size: 1rem;
+  color: var(--yellow);
+  font-weight: bold;
+  margin-bottom: 6px;
+  text-transform: uppercase;
+}
+.resultado-equipos {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 16px;
+  margin-bottom: 6px;
+}
+.team-info {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  min-width: 88px;
+}
+.team-logo {
+  width: 40px;
+  height: 40px;
+  object-fit: contain;
+  border-radius: 12px;
+  margin-bottom: 4px;
+  background: #fff;
+  box-shadow: 0 2px 8px rgba(24,40,69,0.08);
+}
+.team-name-ult {
+  font-family: 'Anton', Arial, sans-serif;
+  font-size: 1.01rem;
+  color: var(--dark-blue);
+}
+.resultado-marcador {
+  font-family: 'Anton', Arial, sans-serif;
+  font-size: 2.1rem;
+  font-weight: bold;
+  color: var(--dark-blue);
+  display: flex;
+  align-items: center;
+  gap: 7px;
+}
+.resultado-marcador .guion {
+  font-size: 1.6rem;
+  font-weight: normal;
+  color: #aaa;
+}
+.resultado-meta {
+  color: #555;
+  font-size: 1.01rem;
+  margin-top: 7px;
+  margin-bottom: 8px;
+}
+.resultado-goleadores {
+  margin-top: 5px;
+  font-size: 0.98rem;
+  color: #333;
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+}
+.goleadores-local, .goleadores-visitante {
+  display: block;
+  margin: 0;
+}
+
+.resultadosSwiper {
+  height: 250px !important;
+  max-width: 1100px;
+  margin: 0 auto 30px auto;
+  position: relative;
+}
+.resultado-card {
+  width: 340px;
+  min-height: 230px;
+  background: var(--white);
+  border-radius: 15px;
+  box-shadow: 0 2px 14px rgba(24,40,69,0.08);
+  padding: 22px 18px;
+  text-align: center;
+  transition: box-shadow 0.18s, transform 0.18s;
+  margin: 0 auto;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  align-items: center;
+}
+.resultado-card:hover {
+  box-shadow: 0 6px 20px rgba(24,40,69,0.14);
+  transform: scale(1.025);
+}
+.liga-nombre {
+  font-size: 1rem;
+  color: var(--yellow);
+  fo
