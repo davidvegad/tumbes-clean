@@ -1,4 +1,7 @@
 from django.db import models
+from storages.backends.s3boto3 import S3Boto3Storage # <-- 1. Importar
+
+s3_storage = S3Boto3Storage()
 
 class Partido(models.Model):
     liga = models.CharField(max_length=100, blank=True, null=True)
@@ -6,7 +9,7 @@ class Partido(models.Model):
     fecha = models.DateField()
     hora = models.TimeField()
     lugar = models.CharField(max_length=100)
-    logo_visitante = models.ImageField(upload_to='logos_visitantes/', blank=True, null=True)
+    logo_visitante = models.ImageField(upload_to='logos_visitantes/', blank=True, null=True, storage=s3_storage)
     goles_local = models.PositiveSmallIntegerField("Goles Tumbes FC", default=0)
     goles_visitante = models.PositiveSmallIntegerField("Goles rival", default=0)
     goleadores_local = models.CharField("Goleadores Tumbes FC", max_length=250, blank=True)
