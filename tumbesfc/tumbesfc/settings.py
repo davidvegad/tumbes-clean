@@ -13,8 +13,10 @@ import os
 from pathlib import Path
 import dj_database_url  # Asegúrate de poner esto en requirements.txt
 
-
-
+#Para probar en local
+from dotenv import load_dotenv
+load_dotenv()
+###############################
 
 DATABASE_URL = os.environ.get('DATABASE_URL')
 

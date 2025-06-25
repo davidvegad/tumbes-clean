@@ -1,5 +1,5 @@
-{% load static %}
-<link rel="stylesheet" href="{% static 'style.css' %}">
+
+
 
 <!DOCTYPE html>
 <html lang="es">
@@ -7,13 +7,15 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Tumbes FC - El Equipo de la Ciudad</title>
-    <link rel="stylesheet" href="style.css">
+    
     
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Anton&family=Roboto:wght@400;700&display=swap" rel="stylesheet">
 	<!-- Swiper CSS -->
 	<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css"/>
+	{% load static %}
+	<link rel="stylesheet" href="{% static 'style.css' %}">
 
 </head>
 <body>
@@ -50,6 +52,10 @@
             </div>
         </section>
 	-->
+
+
+
+		
 		<section id="hero" class="hero-swiper">
 			<div class="swiper heroSwiper">
 				<div class="swiper-wrapper">
@@ -81,9 +87,6 @@
             </div>
         </section>
 		
-
-
-
 		<section id="team" class="content-section">
 			<div class="container">
 				<h2>Nuestro Equipo</h2>
@@ -290,7 +293,7 @@
 <script>
   // Carrusel de jugadores (si ya lo tienes, omite este)
   const swiper = new Swiper('.mySwiper', {
-    slidesPerView: 3,
+    slidesPerView: 1,
     spaceBetween: 30,
     navigation: {
       nextEl: '.swiper-button-next',
@@ -309,7 +312,7 @@
 
   // Carrusel de partidos
   const partidosSwiper = new Swiper('.partidosSwiper', {
-    slidesPerView: 4,    // Puedes poner 1, 2, 3 según tu preferencia
+    slidesPerView: 1,    // Puedes poner 1, 2, 3 según tu preferencia
     spaceBetween: 10,
     navigation: {
       nextEl: '.partidos-next',
@@ -329,7 +332,7 @@
 
   // Carrusel de noticias
   const noticiasSwiper = new Swiper('.noticiasSwiper', {
-    slidesPerView: 2,
+    slidesPerView: 1,
     spaceBetween: 32,
     navigation: {
       nextEl: '.noticias-next',
@@ -366,7 +369,7 @@ const heroSwiper = new Swiper('.heroSwiper', {
 });
 
   const resultadosSwiper = new Swiper('.resultadosSwiper', {
-    slidesPerView: 2,
+    slidesPerView: 1,
     spaceBetween: 32,
     navigation: {
       nextEl: '.resultados-next',
@@ -382,4 +385,25 @@ const heroSwiper = new Swiper('.heroSwiper', {
       1200: { slidesPerView: 3 }
     }
   });
+  
+/*
+document.addEventListener("DOMContentLoaded", function() {
+    new Swiper('.heroSwiper', {
+        loop: true,
+        pagination: {
+            el: '.swiper-pagination',
+            clickable: true,
+        },
+        navigation: {
+            nextEl: '.swiper-button-next',
+            prevEl: '.swiper-button-prev',
+        },
+        autoplay: {
+            delay: 4000,
+            disableOnInteraction: false,
+        },
+    });
+});
+*/
+
 </script>
